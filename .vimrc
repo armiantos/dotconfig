@@ -17,13 +17,6 @@ call plug#end()
 " Fzf config
 let $FZF_DEFAULT_COMMAND='rg --files'
 
-" LSP servers
-au User lsp_setup call lsp#register_server({
-   \ 'name': 'omnisharp',
-\ 'cmd': {server_info->['dotnet', $HOME..'/.local/share/vim-lsp-settings/servers/omnisharp/OmniSharp.dll', '-lsp']},
-   \ 'allowlist': ['cs'],
-   \ })
-
 " Keybindings
 let mapleader = "`"
 
