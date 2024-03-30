@@ -8,6 +8,7 @@ set ignorecase
 
 call plug#begin()
   Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -16,6 +17,13 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'rhysd/vim-healthcheck'
 call plug#end()
+
+" Lsp config
+let g:lsp_settings = {
+  \"omnisharp-lsp": {
+    \"cmd": ["dotnet", "/Users/armiantos/.local/share/vim-lsp-settings/servers/omnisharp-lsp/OmniSharp.dll", "-lsp"]
+  \}
+\}
 
 " Fzf config
 let $FZF_DEFAULT_COMMAND='rg --files'

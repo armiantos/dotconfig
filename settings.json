@@ -1,0 +1,5 @@
+{
+  "omnisharp-lsp": {
+    "cmd": ["dotnet", "/Users/armiantos/.local/share/vim-lsp-settings/servers/omnisharp-lsp/OmniSharp.dll", "-lsp"]
+  }
+}
