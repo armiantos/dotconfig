@@ -2,6 +2,9 @@ syntax on
 
 set mouse=a
 set number
+set incsearch 
+set hlsearch
+set ignorecase
 
 call plug#begin()
   Plug 'prabirshrestha/vim-lsp'
