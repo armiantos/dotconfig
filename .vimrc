@@ -26,7 +26,7 @@ call plug#end()
 " Lsp config
 let g:lsp_settings = {
   \"omnisharp-lsp": {
-    \"cmd": ["dotnet", "/Users/armiantos/.local/share/vim-lsp-settings/servers/omnisharp-lsp/OmniSharp.dll", "-lsp"]
+    \"cmd": ["dotnet", $HOME . ".local/share/vim-lsp-settings/servers/omnisharp-lsp/OmniSharp.dll", "-lsp"]
   \}
 \}
 
