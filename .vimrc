@@ -6,6 +6,11 @@ set incsearch
 set hlsearch
 set ignorecase
 
+if has("win32")
+  set nocompatible
+  set backspace=indent,eol,start
+endif
+
 call plug#begin()
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
