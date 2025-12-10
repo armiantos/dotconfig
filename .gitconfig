@@ -1,0 +1,5 @@
+[alias]
+	l = log --oneline
+	s = status
+	sw = switch
+	b = branch
