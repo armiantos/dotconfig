@@ -29,8 +29,6 @@ return {
   	['<C-u>'] = { 'scroll_signature_up', 'fallback' },
   	['<C-d>'] = { 'scroll_signature_down', 'fallback' }
     ,},
-    signature = { enabled = true },
-
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
