@@ -1,4 +1,9 @@
 vim.opt.number = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
 require("config.lazy")
 
