@@ -4,5 +4,13 @@ return {
         'nvim-lua/plenary.nvim',
         -- optional but recommended
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    }
+    },
+    extensions = {
+      ['ui-select'] = {
+          require('telescope.themes').get_dropdown()
+      }
+    },
+    config = function()
+        require('telescope').load_extension('ui-select')
+    end
 }
