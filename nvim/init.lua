@@ -14,6 +14,8 @@ vim.keymap.set('n', '<leader>p', builtin.find_files)
 vim.keymap.set('n', '<leader>F', builtin.live_grep)
 vim.keymap.set('n', '<leader>P', builtin.commands)
 
+vim.keymap.set('n', '<leader>fd', vim.lsp.buf.format)
+
 -- nvim-tree config
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>')
 
