@@ -5,6 +5,9 @@ vim.opt.smartcase = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
+vim.keymap.set('n', '<PageUp>', "<C-u>")
+vim.keymap.set('n', '<PageDown>', "<C-d>")
+
 require("config.lazy")
 
 -- telescope config
