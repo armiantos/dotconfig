@@ -2,23 +2,21 @@ vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- render whitespace
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
-
-vim.keymap.set('n', '<PageUp>', "<C-u>")
-vim.keymap.set('n', '<PageDown>', "<C-d>")
 
 require("config.lazy")
 
 -- telescope config
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>p', builtin.find_files)
-vim.keymap.set('n', '<leader>F', builtin.live_grep)
-vim.keymap.set('n', '<leader>P', builtin.commands)
+vim.keymap.set('n', '<leader>p', builtin.find_files, { desc = "Find files" })
+vim.keymap.set('n', '<leader>F', builtin.live_grep, { desc = "Global search" })
+vim.keymap.set('n', '<leader>P', builtin.commands, { desc = "Commands" })
 
 -- nvim-tree config
-vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { desc = "Toggle file tree" })
 
 require("mason").setup({
     registries = {
