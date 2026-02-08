@@ -13,5 +13,12 @@ return {
     config = function()
         require('telescope').load_extension('ui-select')
         require('telescope').load_extension('fzf')
+        require('telescope').setup{
+          pickers = {
+            colorscheme = {
+              enable_preview = true,
+            },
+          },
+        }
     end
 }
