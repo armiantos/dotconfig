@@ -2,6 +2,10 @@ vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- indent
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 -- render whitespace
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
