@@ -19,6 +19,9 @@ vim.keymap.set('n', '<leader>p', builtin.find_files, { desc = "Find files" })
 vim.keymap.set('n', '<leader>F', builtin.live_grep, { desc = "Global search" })
 vim.keymap.set('n', '<leader>P', builtin.commands, { desc = "Commands" })
 
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" })
+
 -- nvim-tree config
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { desc = "Toggle file tree" })
 
