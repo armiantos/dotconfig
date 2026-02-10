@@ -19,6 +19,12 @@ return {
               enable_preview = true,
             },
           },
+          defaults = {
+              layout_strategy = 'flex',
+              layout_config = {
+                  flip_columns = 160
+              }
+          }
         }
     end
 }
