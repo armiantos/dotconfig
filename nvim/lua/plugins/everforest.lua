@@ -7,5 +7,5 @@ return {
 		-- directly inside the plugin declaration.
 		vim.g.everforest_enable_italic = true
 		vim.cmd.colorscheme('everforest')
-	  end
+	end
 }
