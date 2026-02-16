@@ -12,7 +12,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
 require("config.lazy")
 
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('everforest')
 
 -- telescope config
 
