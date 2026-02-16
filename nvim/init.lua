@@ -12,6 +12,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
 require("config.lazy")
 
+vim.cmd.colorscheme('kanagawa')
+
 -- telescope config
 
 local builtin = require('telescope.builtin')
