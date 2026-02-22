@@ -55,3 +55,9 @@ vim.diagnostic.config {
   jump = { float = true },
 }
 
+-- nvim-treesitter
+require'nvim-treesitter'.install { 'c_sharp' }
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'cs' },
+  callback = function() vim.treesitter.start() end,
+})
