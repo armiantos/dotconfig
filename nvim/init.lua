@@ -12,7 +12,12 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
 require("config.lazy")
 
-vim.cmd.colorscheme('everforest')
+vim.cmd.colorscheme('kanagawa')
+
+-- key binds
+vim.keymap.set('n', '<Up>', 'g<Up>', { desc = "Move visual" })
+vim.keymap.set('n', '<Down>', 'g<Down>', { desc = "Move visual" })
+vim.keymap.set({'n', 'v'}, 'Y', '"*y', { desc = "Move visual" })
 
 -- telescope config
 
