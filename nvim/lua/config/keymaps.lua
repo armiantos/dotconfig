@@ -19,5 +19,5 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights on Esc" })
 
 -- nvim-tree config
-vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', { desc = "Toggle file tree" })
+vim.keymap.set('n', '<leader>b', ':NvimTreeFindFileToggle<CR>', { desc = "Toggle file tree" })
 
