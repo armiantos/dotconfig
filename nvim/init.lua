@@ -13,8 +13,11 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 require("config.lazy")
 require("config.keymaps")
 
-vim.cmd.colorscheme('kanagawa')
+-- color scheme
+vim.o.background = 'light'
+vim.cmd.colorscheme('patana')
 
+-- lsp
 require("mason").setup({
 	registries = {
 		"github:mason-org/mason-registry",
