@@ -1,3 +1,0 @@
-return {
-	'cvigilv/patana.nvim',
-}
