@@ -22,6 +22,7 @@ require("mason").setup({
 
 -- vim.lsp.enable('roslyn') -- already enabled through roslyn.nvim
 vim.lsp.enable('clangd')
+vim.lsp.enable('lua_ls')
 
 -- Diagnostic Config & Keymaps
 vim.diagnostic.config {
