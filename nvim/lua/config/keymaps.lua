@@ -1,12 +1,12 @@
 -- key binds
 vim.keymap.set('n', '<Up>', 'g<Up>', { desc = "Move visual" })
 vim.keymap.set('n', '<Down>', 'g<Down>', { desc = "Move visual" })
-vim.keymap.set({'n', 'v'}, 'Y', '"*y', { desc = "Move visual" })
+vim.keymap.set({ 'n', 'v' }, 'Y', '"+y', { desc = "Move visual" })
 
 -- telescope config
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>p', builtin.find_files, { desc = "Find files" })
+vim.keymap.set('n', '<leader>p', function() builtin.git_files({ show_untracked = true }) end, { desc = "Find files" })
 vim.keymap.set('n', '<leader>F', builtin.live_grep, { desc = "Global search" })
 vim.keymap.set('n', '<leader>P', builtin.commands, { desc = "Commands" })
 
@@ -20,4 +20,3 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights 
 
 -- nvim-tree config
 vim.keymap.set('n', '<leader>b', ':NvimTreeFindFileToggle<CR>', { desc = "Toggle file tree" })
-
