@@ -20,6 +20,8 @@ require("mason").setup({
 	},
 })
 
+vim.cmd.colorscheme('vague')
+
 -- vim.lsp.enable('roslyn') -- already enabled through roslyn.nvim
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
@@ -40,7 +42,7 @@ vim.diagnostic.config {
 }
 
 -- nvim-treesitter
-require'nvim-treesitter'.install { 'c_sharp' }
+require 'nvim-treesitter'.install { 'c_sharp' }
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = { 'cs' },
 	callback = function() vim.treesitter.start() end,
@@ -50,6 +52,6 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_user_command("ToggleFormatOnSave", function(args)
 	vim.g.disable_autoformat = not vim.g.disable_autoformat
 end, {
-desc = "Toggle autoformat-on-save",
-bang = true,
+	desc = "Toggle autoformat-on-save",
+	bang = true,
 })
