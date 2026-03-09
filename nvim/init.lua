@@ -20,11 +20,10 @@ require("mason").setup({
 	},
 })
 
-vim.cmd.colorscheme('vague')
-
 -- vim.lsp.enable('roslyn') -- already enabled through roslyn.nvim
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('pylsp')
 
 -- Diagnostic Config & Keymaps
 vim.diagnostic.config {
@@ -42,9 +41,9 @@ vim.diagnostic.config {
 }
 
 -- nvim-treesitter
-require 'nvim-treesitter'.install { 'c_sharp' }
+require 'nvim-treesitter'.install { 'c_sharp', 'python', 'lua' }
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'cs' },
+	pattern = { 'cs', 'python', 'lua' },
 	callback = function() vim.treesitter.start() end,
 })
 
