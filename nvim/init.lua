@@ -24,6 +24,7 @@ require("mason").setup({
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pylsp')
+vim.lsp.enable('rust_analyzer')
 
 -- Diagnostic Config & Keymaps
 vim.diagnostic.config {
@@ -41,9 +42,9 @@ vim.diagnostic.config {
 }
 
 -- nvim-treesitter
-require 'nvim-treesitter'.install { 'c_sharp', 'python', 'lua' }
+require 'nvim-treesitter'.install { 'c_sharp', 'python', 'lua', 'rust' }
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'cs', 'python', 'lua' },
+	pattern = { 'cs', 'python', 'lua', 'rust' },
 	callback = function() vim.treesitter.start() end,
 })
 
