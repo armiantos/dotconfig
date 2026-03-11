@@ -45,9 +45,9 @@ vim.diagnostic.config {
 }
 
 -- nvim-treesitter
-require 'nvim-treesitter'.install { 'c_sharp', 'python', 'lua', 'rust' }
+require 'nvim-treesitter'.install { 'c_sharp', 'python', 'lua', 'rust', 'yaml' }
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'cs', 'python', 'lua', 'rust' },
+	pattern = { 'cs', 'python', 'lua', 'rust', 'yaml' },
 	callback = function() vim.treesitter.start() end,
 })
 
