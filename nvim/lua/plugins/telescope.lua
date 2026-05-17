@@ -34,7 +34,9 @@ return {
 					"--line-number",
 					"--column",
 					"--smart-case"
-				} }
+				},
+				path_display = { 'filename_first' }
+			}
 		}
 	end
 }
