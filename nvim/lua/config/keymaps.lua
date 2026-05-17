@@ -25,3 +25,17 @@ vim.keymap.set('n', '<leader>b', ':NvimTreeFindFileToggle<CR>', { desc = "Toggle
 
 -- fugitive
 vim.keymap.set('n', '<leader>G', '<cmd>G<CR>', { desc = "Open git" })
+
+
+-- path
+function expand_and_set_to_clipboard(term)
+	_path = vim.fn.expand(term)
+	vim.fn.setreg('+', _path)
+	print(string.format('Copied %s to clipboard', _path))
+end
+
+vim.keymap.set('n', '<leader>a', function() expand_and_set_to_clipboard('%:t') end,
+	{ desc = 'Copies filename to clipboard' })
+
+vim.keymap.set('n', '<leader>A', function() expand_and_set_to_clipboard('%') end,
+	{ desc = 'Copies path to file to clipboard' })
