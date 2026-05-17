@@ -1,5 +1,10 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  lazy = false,
-  build = ':TSUpdate'
+	'nvim-treesitter/nvim-treesitter',
+	lazy = false,
+	build = ':TSUpdate',
+	opts = {
+		git = {
+			enable = false
+		}
+	}
 }
