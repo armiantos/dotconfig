@@ -23,11 +23,10 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights on Esc" })
 
 -- nvim-tree config
-vim.keymap.set('n', '<leader>b', ':NvimTreeFindFileToggle<CR>', { desc = "Toggle file tree" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- fugitive
 vim.keymap.set('n', '<leader>G', '<cmd>G<CR>', { desc = "Open git" })
-
 
 -- path
 function expand_and_set_to_clipboard(term)
