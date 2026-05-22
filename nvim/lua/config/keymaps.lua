@@ -38,5 +38,5 @@ end
 vim.keymap.set('n', '<leader>a', function() expand_and_set_to_clipboard('%:t') end,
 	{ desc = 'Copies filename to clipboard' })
 
-vim.keymap.set('n', '<leader>A', function() expand_and_set_to_clipboard('%') end,
+vim.keymap.set('n', '<leader>A', function() expand_and_set_to_clipboard('%:.') end,
 	{ desc = 'Copies path to file to clipboard' })
