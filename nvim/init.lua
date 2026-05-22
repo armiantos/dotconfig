@@ -2,6 +2,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.foldlevelstart = 99 -- don't fold by default
 
 -- indent
 vim.opt.tabstop = 4
@@ -46,7 +47,12 @@ vim.diagnostic.config {
 require 'nvim-treesitter'.install { 'c_sharp', 'python', 'lua', 'rust', 'yaml' }
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = { 'cs', 'python', 'lua', 'rust', 'yaml' },
-	callback = function() vim.treesitter.start() end,
+	callback = function()
+		vim.treesitter.start()
+		vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+		vim.wo[0][0].foldmethod = 'expr'
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
 })
 
 -- conform
