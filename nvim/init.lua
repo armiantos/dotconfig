@@ -55,6 +55,11 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'git',
+	callback = function() vim.wo[0][0].foldmethod = 'syntax' end,
+})
+
 -- conform
 vim.api.nvim_create_user_command("ToggleFormatOnSave", function(args)
 	vim.g.disable_autoformat = not vim.g.disable_autoformat
