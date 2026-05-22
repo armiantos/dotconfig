@@ -22,6 +22,7 @@ return {
 				},
 			},
 			defaults = {
+				preview = false,
 				layout_strategy = 'flex',
 				layout_config = {
 					flip_columns = 160
