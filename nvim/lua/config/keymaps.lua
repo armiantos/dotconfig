@@ -9,6 +9,8 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>p', function() builtin.git_files({ show_untracked = true }) end, { desc = "Find files" })
 vim.keymap.set('n', '<leader>F', builtin.live_grep, { desc = "Global search" })
 vim.keymap.set('n', '<leader>P', builtin.commands, { desc = "Commands" })
+vim.keymap.set('n', '<leader>;', function() builtin.find_files({ cwd = vim.fn.stdpath('config') }) end,
+	{ desc = "Commands" })
 
 vim.keymap.set('n', 'grr', builtin.lsp_references, { desc = "List references" })
 vim.keymap.set('n', 'gri', builtin.lsp_implementations, { desc = "List implementations" })
@@ -20,3 +22,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights 
 
 -- nvim-tree config
 vim.keymap.set('n', '<leader>b', ':NvimTreeFindFileToggle<CR>', { desc = "Toggle file tree" })
+
+-- fugitive
+vim.keymap.set('n', '<leader>G', '<cmd>G<CR>', { desc = "Open git" })
