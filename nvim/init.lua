@@ -12,6 +12,11 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
 require("config.lazy")
 
+-- key binds
+vim.keymap.set('n', '<Up>', 'g<Up>', { desc = "Move visual" })
+vim.keymap.set('n', '<Down>', 'g<Down>', { desc = "Move visual" })
+vim.keymap.set({'n', 'v'}, 'Y', '"*y', { desc = "Move visual" })
+
 -- telescope config
 
 local builtin = require('telescope.builtin')
