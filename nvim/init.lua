@@ -14,6 +14,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = '·' }
 
 require("config.lazy")
 require("config.keymaps")
+require('config.commands')
 
 require("mason").setup({
 	registries = {
