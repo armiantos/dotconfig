@@ -11,9 +11,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights 
 -- nvim-tree config
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- fugitive
-vim.keymap.set('n', '<leader>G', '<cmd>G<CR>', { desc = "Open git" })
-
 -- path
 function expand_and_set_to_clipboard(term)
 	_path = vim.fn.expand(term)
