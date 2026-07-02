@@ -8,9 +8,6 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" 
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights on Esc" })
 
--- nvim-tree config
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
 -- path
 function expand_and_set_to_clipboard(term)
 	_path = vim.fn.expand(term)
