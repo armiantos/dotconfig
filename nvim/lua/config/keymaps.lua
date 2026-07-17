@@ -52,3 +52,5 @@ vim.keymap.set({ 'n', 'x' }, '<leader>a', function() expand_and_set_to_clipboard
 
 vim.keymap.set({ 'n', 'x' }, '<leader>A', function() expand_and_set_to_clipboard('%:p') end,
 	{ desc = 'Copies absolute path of file to clipboard' })
+
+vim.keymap.set('n', '<leader>C', ':!code %<CR>', { desc = 'Open current file in VSCode' })
