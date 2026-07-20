@@ -15,6 +15,9 @@ function expand_and_set_to_clipboard(term)
 	print(string.format('Copied %s to clipboard', _path))
 end
 
+vim.keymap.set('n', '<leader>f', function() expand_and_set_to_clipboard('%:t') end,
+	{ desc = 'Copies filename to clipboard' })
+
 vim.keymap.set('n', '<leader>a', function() expand_and_set_to_clipboard('%:.') end,
 	{ desc = 'Copies relative filename to clipboard' })
 
