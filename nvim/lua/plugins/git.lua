@@ -1,7 +1,8 @@
 return {
 	'tpope/vim-fugitive',
+	lazy = false,
 	keys = {
 		{ '<leader>G', '<cmd>G<CR>', desc = "Open git" },
-		{ '<leader>Y', ':GBrowse!', mode = { 'n', 'v' }, desc = "Copy permalink" },
+		{ '<leader>Y', ':GBrowse!',  mode = { 'n', 'v' }, desc = "Copy permalink" },
 	},
 }
