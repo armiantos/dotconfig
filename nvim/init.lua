@@ -3,6 +3,7 @@ vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.foldlevelstart = 99 -- don't fold by default
+vim.opt.splitright = true
 
 -- indent
 vim.opt.tabstop = 4
