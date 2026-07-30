@@ -43,5 +43,12 @@ vim.api.nvim_create_user_command("GdiffBase", function()
 	end
 
 	print(string.format('Diffing against %s', vim.g.fugitive.base))
+
+	local width = vim.api.nvim_win_get_width(0)
+	if width < 80 then
+		vim.cmd(string.format('Gdiffsplit %s', vim.g.fugitive.base))
+		return
+	end
+
 	vim.cmd(string.format('Gvdiffsplit %s', vim.g.fugitive.base))
 end, { desc = 'Compares current file against base diff set from GSetBase' })
