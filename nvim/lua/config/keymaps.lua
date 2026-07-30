@@ -8,6 +8,11 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" 
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Remove highlights on Esc" })
 
+vim.keymap.set('n', '<leader>qo', '<cmd>copen<CR>', { desc = "Opens quickfix" })
+vim.keymap.set('n', '<leader>qc', '<cmd>cclose<CR>', { desc = "Closes quickfix" })
+vim.keymap.set('n', '<leader>qn', '<cmd>cnext<CR>', { desc = "Next in quickfix" })
+vim.keymap.set('n', '<leader>qp', '<cmd>cprev<CR>', { desc = "Prev in quickfix" })
+
 -- path
 function expand_and_set_to_clipboard(term)
 	_path = vim.fn.expand(term)
