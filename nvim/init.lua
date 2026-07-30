@@ -5,6 +5,7 @@ vim.opt.smartcase = true
 vim.opt.foldlevelstart = 99 -- don't fold by default
 vim.opt.splitright = true
 vim.opt.scrolloff = 10
+vim.opt.termguicolors = true -- hint windows to use true colors
 
 -- indent
 vim.opt.tabstop = 4
