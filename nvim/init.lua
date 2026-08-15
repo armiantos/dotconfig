@@ -28,7 +28,8 @@ require("mason").setup({
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('ty')
+vim.lsp.enable('ruff')
+vim.lsp.enable('basedpyright')
 
 -- Diagnostic Config & Keymaps
 vim.diagnostic.config {
