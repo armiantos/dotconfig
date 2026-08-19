@@ -1,6 +1,6 @@
 config-file = ?auto/theme.ghostty
 font-family = Iosevka Nerd Font
-font-size = 15
+font-size = 16
 
 window-padding-x = 10
 window-padding-y = 10
