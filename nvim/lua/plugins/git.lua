@@ -10,6 +10,7 @@ end
 return {
 	'tpope/vim-fugitive',
 	lazy = false,
+	dependencies = { 'barrettruth/diffs.nvim' },
 	keys = {
 		{ '<leader>ls', '<cmd>G<CR>',                                       desc = "Open git" },
 		{ '<leader>ly', ':GBrowse!<CR>',                                    mode = { 'n', 'v' },                                 desc = "Copy permalink" },
