@@ -8,14 +8,23 @@ return {
 		'nvim-telescope/telescope-ui-select.nvim',
 	},
 	keys = {
-		{ '<leader>p',     function() require('telescope.builtin').find_files() end,                                   desc = "Find files" },
-		{ '<leader><C-p>', function() require('telescope.builtin').find_files({ hidden = true }) end,                  desc = "Find files (with hidden files)" },
-		{ '<leader>b',     function() require('telescope.builtin').buffers() end,                                      desc = "Buffers" },
-		{ '<leader>F',     function() require('telescope.builtin').live_grep() end,                                    desc = "Global search" },
-		{ '<leader>P',     function() require('telescope.builtin').commands() end,                                     desc = "Commands" },
-		{ '<leader>;',     function() require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') }) end, desc = "Find config files" },
-		{ 'grr',           function() require('telescope.builtin').lsp_references() end,                               desc = "List references" },
-		{ 'gri',           function() require('telescope.builtin').lsp_implementations() end,                          desc = "List implementations" },
+		{ '<leader>p',     function() require('telescope.builtin').find_files() end,                  desc = "Find files" },
+		{ '<leader><C-p>', function() require('telescope.builtin').find_files({ hidden = true }) end, desc = "Find files (with hidden files)" },
+		{ '<leader>b',     function() require('telescope.builtin').buffers() end,                     desc = "Buffers" },
+		{ '<leader>F',     function() require('telescope.builtin').live_grep() end,                   desc = "Global search" },
+		{
+			'<leader><C-F>',
+			function()
+				local filters = vim.fn.input('glob_pattern: ')
+				print(filters)
+				require('telescope.builtin').live_grep({ glob_pattern = filters })
+			end,
+			desc = "Global search"
+		},
+		{ '<leader>P', function() require('telescope.builtin').commands() end,                                     desc = "Commands" },
+		{ '<leader>;', function() require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') }) end, desc = "Find config files" },
+		{ 'grr',       function() require('telescope.builtin').lsp_references() end,                               desc = "List references" },
+		{ 'gri',       function() require('telescope.builtin').lsp_implementations() end,                          desc = "List implementations" },
 	},
 	config = function()
 		require('telescope').load_extension('ui-select')
