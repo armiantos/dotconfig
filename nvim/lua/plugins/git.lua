@@ -17,5 +17,14 @@ return {
 		{ '<leader>ld', ':GdiffBase<CR>',                                   desc = 'Start diffing from base set by `<leader>gb`' },
 		{ '<leader>ln', function() close_diff_and_reinit_diff('cnext') end, desc = 'Start diffing from base set by `<leader>gb`' },
 		{ '<leader>lp', function() close_diff_and_reinit_diff('cprev') end, desc = 'Start diffing from base set by `<leader>gb`' },
+		{
+			'<leader>lr',
+			function()
+				local base = vim.api.nvim_exec2(':G merge-base main !', { output = true }).output
+				print(string.format("Base: %s", base))
+				vim.cmd(string.format(':GSetBase %s', base))
+			end,
+			desc = 'Start review - Diff with merge-base against main'
+		},
 	},
 }
