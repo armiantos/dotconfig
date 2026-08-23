@@ -3,7 +3,18 @@ local close_diff_and_reinit_diff = function(mode)
 		vim.cmd.normal({ 'dq' }) -- close diff
 	end
 
-	vim.cmd(mode) -- go to next fileS
+	vim.cmd(mode) -- go to next/prev file
+
+	local qf_list = vim.fn.getqflist()
+	local current_idx = vim.fn.getqflist({ idx = 0 }).idx
+
+	local current_item = qf_list[current_idx].text
+
+	if current_item == 'A' then
+		-- new item, nothing to diff against
+		return
+	end
+
 	vim.cmd(':GdiffBase')
 end
 
