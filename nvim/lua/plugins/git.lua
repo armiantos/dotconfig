@@ -26,12 +26,23 @@ return {
 		{ '<leader>ls', '<cmd>G<CR>',                                       desc = "Open git" },
 		{ '<leader>ly', ':GBrowse!<CR>',                                    mode = { 'n', 'v' },                                 desc = "Copy permalink" },
 		{ '<leader>ld', ':GdiffBase<CR>',                                   desc = 'Start diffing from base set by `<leader>gb`' },
-		{ '<leader>ln', function() close_diff_and_reinit_diff('cnext') end, desc = 'Start diffing from base set by `<leader>gb`' },
-		{ '<leader>lp', function() close_diff_and_reinit_diff('cprev') end, desc = 'Start diffing from base set by `<leader>gb`' },
+		{ '<leader>ln', function() close_diff_and_reinit_diff('cnext') end, desc = 'Go to next diff' },
+		{ '<leader>lp', function() close_diff_and_reinit_diff('cprev') end, desc = 'Go to prev diff' },
+		{
+			'<leader>lb',
+			function()
+				vim.fn.setreg('+', vim.g.fugitive.base)
+				print(string.format("Base: %s", vim.g.fugitive.base))
+			end,
+			desc = 'Prints the base set from lr or GSetBase'
+		},
 		{
 			'<leader>lr',
 			function()
-				local base = vim.api.nvim_exec2(':G merge-base main !', { output = true }).output
+				local default_branch = vim.api.nvim_exec2(":G symbolic-ref refs/remotes/origin/HEAD --short",
+					{ output = true }).output
+				local base = vim.api.nvim_exec2(string.format(':G merge-base %s !', default_branch), { output = true })
+					.output
 				print(string.format("Base: %s", base))
 				vim.cmd(string.format(':GSetBase %s', base))
 			end,
