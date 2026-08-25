@@ -1,5 +1,4 @@
 function invoke_if_count(with_count, default)
-	print(vim.v.count)
 	if vim.v.count > 1 then
 		vim.cmd.normal { vim.v.count .. with_count, bang = true }
 		return
@@ -11,6 +10,8 @@ end
 vim.keymap.set('n', '<Up>', function() invoke_if_count('k', 'gk') end, { desc = "Move visual" })
 vim.keymap.set('n', '<Down>', function() invoke_if_count('j', 'gj') end, { desc = "Move visual" })
 vim.keymap.set({ 'n', 'v' }, 'Y', '"+y', { desc = "Move visual" })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Go up half page" })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Go down half page" })
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" })
