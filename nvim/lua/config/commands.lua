@@ -43,10 +43,14 @@ vim.api.nvim_create_user_command("GdiffBase", function(opts)
 		return
 	end
 
+	coalesced_opts = opts or {
+		flip_columns = 180
+	}
+
 	print(string.format('Diffing against %s', vim.g.fugitive.base))
 
 	local width = vim.api.nvim_win_get_width(0)
-	if width < 180 then
+	if width < coalesced_opts.flip_columns then
 		vim.cmd(string.format('Gdiffsplit %s', vim.g.fugitive.base))
 		return
 	end
