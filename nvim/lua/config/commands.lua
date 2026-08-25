@@ -13,7 +13,6 @@ end, { range = true })
 vim.api.nvim_create_user_command("GInspect", function(opts)
 	local commit = opts.fargs[1]
 	local cmd = string.format('GSetBase %s~1 %s', commit, commit)
-	print(cmd)
 	vim.cmd(cmd)
 end, { nargs = 1, desc = 'Loads commit diff to quickfix' })
 
@@ -33,19 +32,21 @@ vim.api.nvim_create_user_command("GSetBase", function(opts)
 		vim.cmd(string.format('G difftool %s..%s --name-status', base_commit, head))
 		return
 	end
+
 	print(string.format('Set base commit to %s', base_commit))
 	vim.cmd(string.format('G difftool %s --name-status', base_commit))
 end, { nargs = '+', desc = 'Sets commit base and optionally target - defaults to current work dir' })
 
-vim.api.nvim_create_user_command("GdiffBase", function()
+vim.api.nvim_create_user_command("GdiffBase", function(opts)
 	if not vim.g.fugitive then
 		print('No base commit set')
+		return
 	end
 
 	print(string.format('Diffing against %s', vim.g.fugitive.base))
 
 	local width = vim.api.nvim_win_get_width(0)
-	if width < 80 then
+	if width < 180 then
 		vim.cmd(string.format('Gdiffsplit %s', vim.g.fugitive.base))
 		return
 	end

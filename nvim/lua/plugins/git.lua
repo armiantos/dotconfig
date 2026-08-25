@@ -34,7 +34,7 @@ return {
 				vim.fn.setreg('+', vim.g.fugitive.base)
 				print(string.format("Base: %s", vim.g.fugitive.base))
 			end,
-			desc = 'Prints the base set from lr or GSetBase'
+			desc = 'Copies the base set from `lr` or GSetBase'
 		},
 		{
 			'<leader>lr',
