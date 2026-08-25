@@ -18,6 +18,11 @@ local close_diff_and_reinit_diff = function(mode)
 	vim.cmd(':GdiffBase')
 end
 
+local function inspect_commit_under_cursor()
+	local possible_commit = vim.fn.expand('<cword>')
+	vim.cmd(string.format(':GInspect %s', possible_commit))
+end
+
 return {
 	'tpope/vim-fugitive',
 	lazy = false,
@@ -26,6 +31,7 @@ return {
 		{ '<leader>ls', '<cmd>G<CR>',                                       desc = "Open git" },
 		{ '<leader>ly', ':GBrowse!<CR>',                                    mode = { 'n', 'v' },                                 desc = "Copy permalink" },
 		{ '<leader>ld', ':GdiffBase<CR>',                                   desc = 'Start diffing from base set by `<leader>gb`' },
+		{ '<leader>li', inspect_commit_under_cursor,                        desc = 'Inspect commit under cursor' },
 		{ '<leader>ln', function() close_diff_and_reinit_diff('cnext') end, desc = 'Go to next diff' },
 		{ '<leader>lp', function() close_diff_and_reinit_diff('cprev') end, desc = 'Go to prev diff' },
 		{
