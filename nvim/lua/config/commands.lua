@@ -10,6 +10,10 @@ vim.api.nvim_create_user_command("Format", function(args)
 	require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
 
+local fugitive_extension_configs = {
+	flip_columns = 80
+}
+
 vim.api.nvim_create_user_command("GInspect", function(opts)
 	local commit = opts.fargs[1]
 	local cmd = string.format('GSetBase %s~1 %s', commit, commit)
@@ -37,20 +41,14 @@ vim.api.nvim_create_user_command("GSetBase", function(opts)
 	vim.cmd(string.format('G difftool %s --name-status', base_commit))
 end, { nargs = '+', desc = 'Sets commit base and optionally target - defaults to current work dir' })
 
-vim.api.nvim_create_user_command("GdiffBase", function(opts)
+vim.api.nvim_create_user_command("GdiffBase", function()
 	if not vim.g.fugitive then
 		print('No base commit set')
 		return
 	end
 
-	coalesced_opts = opts or {
-		flip_columns = 180
-	}
-
-	print(string.format('Diffing against %s', vim.g.fugitive.base))
-
 	local width = vim.api.nvim_win_get_width(0)
-	if width < coalesced_opts.flip_columns then
+	if width < fugitive_extension_configs.flip_columns then
 		vim.cmd(string.format('Gdiffsplit %s', vim.g.fugitive.base))
 		return
 	end
