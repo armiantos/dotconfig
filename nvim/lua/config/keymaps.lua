@@ -24,17 +24,31 @@ vim.keymap.set('n', '<leader>qn', '<cmd>cnext<CR>', { desc = "Next in quickfix" 
 vim.keymap.set('n', '<leader>qp', '<cmd>cprev<CR>', { desc = "Prev in quickfix" })
 
 -- path
-function expand_and_set_to_clipboard(term)
-	_path = vim.fn.expand(term)
+local function expand_and_set_to_clipboard(term)
+	local _path = vim.fn.expand(term)
+	if vim.fn.mode() == 'V' then
+		local start_line = vim.fn.getpos('v')[2]
+		local end_line = vim.fn.getpos('.')[2]
+		if start_line > end_line then
+			start_line, end_line = end_line, start_line
+		end
+		if start_line == end_line then
+			_path = _path .. ':' .. start_line
+		else
+			_path = _path .. ':' .. start_line .. ',' .. end_line
+		end
+		vim.api.nvim_input("<esc>")
+	end
+
 	vim.fn.setreg('+', _path)
 	print(string.format('Copied %s to clipboard', _path))
 end
 
-vim.keymap.set('n', '<leader>f', function() expand_and_set_to_clipboard('%:t') end,
+vim.keymap.set({ 'n', 'x' }, '<leader>f', function() expand_and_set_to_clipboard('%:t') end,
 	{ desc = 'Copies filename to clipboard' })
 
-vim.keymap.set('n', '<leader>a', function() expand_and_set_to_clipboard('%:.') end,
+vim.keymap.set({ 'n', 'x' }, '<leader>a', function() expand_and_set_to_clipboard('%:.') end,
 	{ desc = 'Copies relative filename to clipboard' })
 
-vim.keymap.set('n', '<leader>A', function() expand_and_set_to_clipboard('%:p') end,
+vim.keymap.set({ 'n', 'x' }, '<leader>A', function() expand_and_set_to_clipboard('%:p') end,
 	{ desc = 'Copies absolute path of file to clipboard' })
