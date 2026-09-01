@@ -20,13 +20,6 @@ require("config.lazy")
 require("config.keymaps")
 require('config.commands')
 
-require("mason").setup({
-	registries = {
-		"github:mason-org/mason-registry",
-		"github:Crashdummyy/mason-registry",
-	},
-})
-
 -- vim.lsp.enable('roslyn') -- already enabled through roslyn.nvim
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua_ls')
