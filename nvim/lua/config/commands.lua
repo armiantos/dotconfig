@@ -55,3 +55,14 @@ vim.api.nvim_create_user_command("GdiffBase", function()
 
 	vim.cmd(string.format('Gvdiffsplit %s', vim.g.fugitive.base))
 end, { desc = 'Compares current file against base diff set from GSetBase' })
+
+vim.api.nvim_create_user_command('ToMdTable', function(args)
+	local start_line = args.line1
+	local end_line = args.line2
+	vim.cmd('\'<,\'>s/\\t/|/g')            -- Replace tabs with |
+	vim.cmd(string.format(":%d", start_line)) -- Go to start line
+	vim.cmd('norm! yyp')                   -- Copy first line for separator
+	vim.cmd(string.format(':s/[^|]/-/g'))  -- Populate separator
+	vim.cmd('\'<,\'>g/^/norm I|')          -- Insert | in start
+	vim.cmd('\'<,\'>g/$/norm A|')          -- Append | to end
+end, { range = true, desc = "Formats selection to markdown table" })
