@@ -4,10 +4,12 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.foldlevelstart = 99 -- don't fold by default
 vim.opt.splitright = true
+vim.opt.scrolloff = 10
 
 -- indent
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.breakindent = true
 
 -- render whitespace
 vim.o.list = true
