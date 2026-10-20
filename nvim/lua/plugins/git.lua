@@ -29,6 +29,7 @@ return {
 	dependencies = { 'barrettruth/diffs.nvim' },
 	keys = {
 		{ '<leader>ls', '<cmd>G<CR>',                                       desc = "Open git" },
+		{ '<leader>ll', '<cmd>G l --decorate<CR>',                          desc = "See git log" },
 		{ '<leader>ly', ':GBrowse!<CR>',                                    mode = { 'n', 'v' },                                 desc = "Copy permalink" },
 		{ '<leader>ld', ':GdiffBase<CR>',                                   desc = 'Start diffing from base set by `<leader>gb`' },
 		{ '<leader>li', inspect_commit_under_cursor,                        desc = 'Inspect commit under cursor' },
